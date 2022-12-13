@@ -12,29 +12,23 @@ public class Deal {
                 "2trf", "3trf", "4trf", "5trf", "6trf", "7trf", "8trf", "9trf", "10trf", "Vtrf", "Dtrf", "Ktrf", "Ttrf",
                 "2bub", "3bub", "4bub", "5bub", "6bub", "7bub", "8bub", "9bub", "10bub", "Vbub", "Dbub", "Kbub", "Tbub"
         };
-        for (int i=0; i<2;i++) {
-            System.out.print("Введите число играков: ");
-            if (sc.hasNextInt()) {
+        System.out.print("Введите  число игроков: ");
+        if (sc.hasNextInt()) {
+            do {
                 temp = sc.nextInt();
-                if (1 < temp && temp < 11) {
-                    n = temp;
-                    mixing(koloda);
-                    razdaca(n,koloda);
-                    break;
-                } else {
-                    System.out.println("В покере могут играть от 2 до 10 игроков");
+                if (temp < 2 | temp > 10) {
+                    System.out.println("Число играков не соотвутствует. Введите от 2-10: ");
                 }
-            } else {
-                System.out.println("Введите целое число");
-                sc.next();
             }
+            while (temp <2| temp > 10);
+
         }
-        if (temp >= 11) {
-            System.out.println("Не хотите играть, как хотите!");
-            return;
-    }
+        n = temp;
+        mixing(koloda);
+        razdaca(n, koloda);
         sc.close();
     }
+    
     public static void mixing(String[] array) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
