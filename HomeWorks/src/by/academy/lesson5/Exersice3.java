@@ -19,5 +19,7 @@ public class Exersice3 {
                 System.out.println(masStrok[j]);
             }
         }
+        sc.close();
     }
+
 }
